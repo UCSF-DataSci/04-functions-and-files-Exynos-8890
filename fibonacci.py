@@ -24,8 +24,11 @@ def fib_gen(an_argument):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('count',type = int,default = 100,help = 'limit of a Fibonacci Sequence')
+    parser.add_argument('-c', '--count', type=int, default=100, help='limit of a Fibonacci Sequence')
     args = parser.parse_args()
     output = str(fib_gen(args.count))
-    with open("fibonacci_100.txt",'w') as files:
-        files.write(output)
+    try:
+        with open("fibonacci_100.txt",'w') as files:
+            files.write(output)
+    except IOError:
+        print('Error writing to file')

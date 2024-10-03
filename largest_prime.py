@@ -21,7 +21,7 @@ def is_prime(n):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("count",type = int, default= 100, help = 'limit of a fibonacci sequence')
+    parser.add_argument('-c',"--count",type = int, default= 50000, help = 'limit of a fibonacci sequence')
     args = parser.parse_args()
     fib_list = fibonacci.fib_gen(args.count)
     first_prime = 0
